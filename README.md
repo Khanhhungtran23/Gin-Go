@@ -1,4 +1,4 @@
-# Gin Practice
+# Gin/Go
 
 This is a simple CRUD application built with [Gin](https://github.com/gin-gonic/gin) and [GORM](https://gorm.io/).
 
