@@ -48,3 +48,7 @@ In case you do not use Docker, open your MySQL client (e.g., MySQL Workbench, co
     Server is running on port 8080
     ```
 It show that you run succesfull.
+
+## Performance test results (Benchmark)
+<img width="865" alt="image" src="https://github.com/Khanhhungtran23/Gin-Go/assets/111229500/3a6bfb7f-9573-42d9-a4b0-bc883bef9e4e">
+
