@@ -1,12 +1,18 @@
 import http from 'k6/http';
 import { check, sleep } from 'k6';
+import { Rate } from 'k6/metrics';
+// import { uuidv4 } from "https://jslib.k6.io/k6-utils/1.0.0/index.js";
 
 export let options = {
   stages: [
-    { duration: '30s', target: 10 },  // Ramp-up to 10 users
-    { duration: '1m', target: 10 },   // Stay at 10 users
-    { duration: '30s', target: 0 },   // Ramp-down to 0 users
+    { duration: '1m', target: 20 },  // Ramp-up to 20 users
+    { duration: '3m', target: 20 },   // Stay at 20 users
+    { duration: '1m', target: 0 },   // Ramp-down to 0 users
   ],
+  thresholds: {
+    http_req_duration: ['p(95)<200'], // 95% requests should be below 200ms
+    'http_req_failed{status:200}': ['rate<0.01'], // Less than 1% requests should fail
+  },
 };
 
 export default function () {
